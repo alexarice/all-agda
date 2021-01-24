@@ -27,4 +27,4 @@
       done
     '';
   }];
-}).Agda.components.exes.agda
+}).Agda.components.exes
