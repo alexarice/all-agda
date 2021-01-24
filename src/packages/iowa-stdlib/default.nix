@@ -4,7 +4,7 @@ v:
 buildGitHub v {
   pname = "iowa-stdlib";
   owner = "cedille";
-  repo  = "ial";
+  repo = "ial";
 
   libraryFile = "";
   libraryName = "IAL-1.3";

@@ -6,7 +6,7 @@ buildGitHub v {
   repo = "agda-stdlib";
   owner = "agda";
 
-  nativeBuildInputs = [ (ghcWithPackages (self : [ self.filemanip ])) ];
+  nativeBuildInputs = [ (ghcWithPackages (self: [ self.filemanip ])) ];
   preConfigure = ''
     runhaskell GenerateEverything.hs
   '';

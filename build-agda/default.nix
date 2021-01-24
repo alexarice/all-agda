@@ -3,13 +3,14 @@
 , lib
 , rev
 , sha256
+, compiler-nix-name ? "ghc884"
 }: (haskell-nix.cabalProject {
   src = fetchFromGitHub {
     owner = "agda";
     repo = "agda";
     inherit rev sha256;
   };
-  compiler-nix-name = "ghc884";
+  inherit compiler-nix-name;
   modules = [{
     # Credit to @michaelpj on irc for this fix
     packages.Agda.package.buildType = lib.mkForce "Simple";
