@@ -32,7 +32,7 @@ let
         inherit (pkgs.haskellPackages) ghcWithPackages;
       };
 
-      # agda-prelude = callPackage ../development/libraries/agda/agda-prelude { };
+      agda-prelude = callPackage apkgs.agda-prelude."compat-2.6.1" { };
 
       agda-categories = callPackage apkgs.agda-categories."0.1.4" { };
 
