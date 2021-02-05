@@ -37,5 +37,9 @@
         agda-master = self.legacyPackages."x86_64-linux".agdaPackages-master.agda;
         agda-2_6_1_2 = self.legacyPackages."x86_64-linux".agdaPackages-2_6_1_2.agda;
       };
+
+      devShell."x86_64-linux" = pkgs.mkShell {
+        buildInputs = [ (self.packages."x86_64-linux".agda-master.withPackages (p: [ p.cubical ]))];
+      };
     };
 }

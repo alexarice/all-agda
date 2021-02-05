@@ -1,0 +1,10 @@
+diff --git a/GNUmakefile b/GNUmakefile
+index 357d71f..3d5a3fa 100644
+--- a/GNUmakefile
++++ b/GNUmakefile
+@@ -1,4 +1,4 @@
+-AGDA_EXEC=agda -W error
++AGDA_EXEC=agda
+ RTS_OPTIONS=+RTS -H3G -RTS
+ AGDA=$(AGDA_EXEC) $(RTS_OPTIONS)
+ EVERYTHINGS=runhaskell ./Everythings.hs

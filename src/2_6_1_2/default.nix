@@ -18,7 +18,7 @@ let
 
       agda = withPackages [ ] // { inherit withPackages; };
 
-      standard-library = self.standard-library-1_4;
+      standard-library = self.standard-library-1_5;
 
       standard-library-1_4 = callPackage apkgs.standard-library."1.4" {
         inherit (pkgs.haskellPackages) ghcWithPackages;
@@ -28,13 +28,15 @@ let
         inherit (pkgs.haskellPackages) ghcWithPackages;
       };
 
-      standard-library-1_5_rc1 = callPackage apkgs.standard-library."1.5-rc1" {
+      standard-library-1_5 = callPackage apkgs.standard-library."1.5" {
         inherit (pkgs.haskellPackages) ghcWithPackages;
       };
 
       agda-prelude = callPackage apkgs.agda-prelude."compat-2.6.1" { };
 
-      agda-categories = callPackage apkgs.agda-categories."0.1.4" { };
+      agda-categories = callPackage apkgs.agda-categories."0.1.4" {
+        standard-library = self.standard-library-1_4;
+      };
 
       cubical = callPackage apkgs.cubical."0.2" { };
 

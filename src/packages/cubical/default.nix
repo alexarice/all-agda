@@ -1,4 +1,4 @@
-v:
+{version, ...}@v:
 { lib, buildGitHub, ghc, glibcLocales }:
 
 buildGitHub v {
@@ -14,6 +14,8 @@ buildGitHub v {
   buildPhase = ''
     make
   '';
+
+  patches = lib.optional (version == "master") [ ./no_werror_patch.txt ];
 
   meta = with lib; {
     description =
