@@ -11,6 +11,7 @@
     inherit rev sha256;
   };
   inherit compiler-nix-name;
+  index-state = "2021-01-23T00:00:00Z";
   modules = [{
     # Credit to @michaelpj on irc for this fix
     packages.Agda.package.buildType = lib.mkForce "Simple";
