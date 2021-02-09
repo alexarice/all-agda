@@ -15,7 +15,7 @@
       buildAgda = args: hpkgs.callPackage ./build-agda args;
     in
     {
-      legacyPackages."x86_64-linux" = {
+      legacyPackages."x86_64-linux" = rec {
         # Development Agda
         agdaPackages-master = pkgs.callPackage ./src/master {
           Agda = buildAgda {

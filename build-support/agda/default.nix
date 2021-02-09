@@ -1,6 +1,6 @@
 # Builder for Agda packages.
 
-{ stdenv, lib, self, agda, agda-mode, runCommandNoCC, makeWrapper, writeText, mkShell, ghcWithPackages }:
+{ stdenv, lib, self, agda, agda-mode, runCommandNoCC, makeWrapper, writeText, mkShell, ghcWithPackages, script }:
 
 with lib.strings;
 with builtins;
@@ -21,7 +21,10 @@ let
       {
         inherit pname version;
         nativeBuildInputs = [ makeWrapper ];
-        passthru.unwrapped = agda;
+        passthru = {
+          unwrapped = agda;
+          updateScript = script;
+        };
       } ''
       mkdir -p $out/bin
       makeWrapper ${agda-mode}/bin/agda-mode $out/bin/agda-mode
