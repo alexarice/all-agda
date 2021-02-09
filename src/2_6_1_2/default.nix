@@ -5,7 +5,7 @@ let
     let
       callPackage = self.callPackage;
       inherit (callPackage ../../build-support/agda {
-        inherit (Agda) agda agda-mode;
+        inherit (Agda) agda agda-mode script;
         inherit self;
         inherit (pkgs.haskellPackages) ghcWithPackages;
       }) withPackages mkDerivation;
