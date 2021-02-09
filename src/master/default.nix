@@ -25,9 +25,9 @@ let
 
       cubical = callPackage apkgs.cubical."devel" { };
 
-      standard-library = callPackage apkgs.standard-library."experimental" {
-        inherit (pkgs.haskellPackages) ghcWithPackages;
-      };
+      # standard-library = callPackage apkgs.standard-library."experimental" {
+      #   inherit (pkgs.haskellPackages) ghcWithPackages;
+      # };
     };
 in
 lib.makeScope newScope mkAgdaPackages
