@@ -9,7 +9,7 @@ buildGitHub v {
   buildInputs = [ standard-library ];
 
   meta = with lib; {
-    inherit (src.meta) homepage;
+    homepage = "https://github.com/agda/agda-categories";
     description = "A new Categories library";
     license = licenses.bsd3;
     platforms = platforms.unix;
