@@ -11,7 +11,7 @@
     flags = { cpphs = false; debug = false; enable-cluster-counting = false; };
     package = {
       specVersion = "1.10";
-      identifier = { name = "Agda"; version = "2.6.1.2"; };
+      identifier = { name = "Agda"; version = "2.6.1.3"; };
       license = "LicenseRef-OtherLicense";
       copyright = "(c) 2005-2020 The Agda Team.";
       maintainer = "Ulf Norell <ulfn@chalmers.se>";
@@ -78,6 +78,7 @@
       extraSrcFiles = [
         "CHANGELOG.md"
         "README.md"
+        "doc/release-notes/2.6.1.2.md"
         "doc/release-notes/2.6.1.1.md"
         "doc/release-notes/2.6.1.md"
         "doc/release-notes/2.6.0.1.md"
@@ -110,8 +111,7 @@
         "doc/release-notes/2.2.4.md"
         "doc/release-notes/2.2.0.md"
         "doc/user-manual.pdf"
-        "stack-8.10.2.yaml"
-        "stack-8.10.1.yaml"
+        "stack-8.10.3.yaml"
         "stack-8.8.4.yaml"
         "stack-8.8.3.yaml"
         "stack-8.6.5.yaml"
@@ -124,7 +124,7 @@
       };
     components = {
       "library" = {
-        depends = (((((([
+        depends = ((((((([
           (hsPkgs."aeson" or (errorHandler.buildDepError "aeson"))
           (hsPkgs."array" or (errorHandler.buildDepError "array"))
           (hsPkgs."async" or (errorHandler.buildDepError "async"))
@@ -160,7 +160,7 @@
           (hsPkgs."unordered-containers" or (errorHandler.buildDepError "unordered-containers"))
           (hsPkgs."uri-encode" or (errorHandler.buildDepError "uri-encode"))
           (hsPkgs."zlib" or (errorHandler.buildDepError "zlib"))
-          ] ++ (pkgs.lib).optional (flags.enable-cluster-counting) (hsPkgs."text-icu" or (errorHandler.buildDepError "text-icu"))) ++ (pkgs.lib).optional (system.isWindows) (hsPkgs."Win32" or (errorHandler.buildDepError "Win32"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).ge "8.6.4" && (compiler.isGhc && (compiler.version).lt "8.10.3")) (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).ge "8.4" && (compiler.isGhc && (compiler.version).lt "8.6.4")) (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).lt "8.4") (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ [
+          ] ++ (pkgs.lib).optional (flags.enable-cluster-counting) (hsPkgs."text-icu" or (errorHandler.buildDepError "text-icu"))) ++ (pkgs.lib).optional (system.isWindows) (hsPkgs."Win32" or (errorHandler.buildDepError "Win32"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).gt "8.10.3") (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).ge "8.6.4" && (compiler.isGhc && (compiler.version).le "8.10.3")) (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).ge "8.4" && (compiler.isGhc && (compiler.version).lt "8.6.4")) (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).lt "8.4") (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ [
           (hsPkgs."text" or (errorHandler.buildDepError "text"))
           ]) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).ge "8.4") (hsPkgs."ghc-compact" or (errorHandler.buildDepError "ghc-compact"));
         build-tools = [

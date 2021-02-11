@@ -2,5 +2,9 @@
   "0.1.4": {
     "rev": "v0.1.4",
     "sha256": "1bcvmxcnl1ig38fxqkx8ydidhxq6a0kn2k9waf0lygh4ap928sgk"
+  },
+  "0.1.5": {
+    "rev": "v0.1.5",
+    "sha256": "1b5gj0r2z5fhh7k8b9s2kx4rjv8gi5y8ijgrbcvsa06n3acap3lm"
   }
 }

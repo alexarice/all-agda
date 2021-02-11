@@ -34,7 +34,9 @@ let
 
       agda-prelude = callPackage apkgs.agda-prelude."compat-2.6.1" { };
 
-      agda-categories = callPackage apkgs.agda-categories."0.1.4" {
+      agda-categories = callPackage apkgs.agda-categories."0.1.5" { };
+
+      agda-categories-0_1_4 = callPackage apkgs.agda-categories."0.1.4" {
         standard-library = self.standard-library-1_4;
       };
 

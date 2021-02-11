@@ -25,17 +25,17 @@
         };
 
         # Agda 2.6.1.2
-        agdaPackages-2_6_1_2 = pkgs.callPackage ./src/2_6_1_2 {
+        agdaPackages-2_6_1 = pkgs.callPackage ./src/2_6_1 {
           Agda = buildAgda {
-            rev = "v2.6.1.2";
-            sha256 = "02fl52vx2izbzkky78r26gj28sjgrk2yh79z7l4kxn467myvly3r";
+            rev = "v2.6.1.3";
+            sha256 = "1zl7c0rb5rg867a431apxlzj2flg3hjidamqa5prc1bzpmfaywyz";
           };
         };
       };
 
       packages."x86_64-linux" = {
         agda-master = self.legacyPackages."x86_64-linux".agdaPackages-master.agda;
-        agda-2_6_1_2 = self.legacyPackages."x86_64-linux".agdaPackages-2_6_1_2.agda;
+        agda-2_6_1 = self.legacyPackages."x86_64-linux".agdaPackages-2_6_1.agda;
       };
 
       devShell."x86_64-linux" = pkgs.mkShell {
