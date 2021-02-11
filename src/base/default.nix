@@ -26,8 +26,7 @@ let
         inherit epkgs;
       };
     } // packages {
-      inherit self callPackage buildLibrarySet;
-      inherit (pkgs.haskellPackages) ghcWithPackages;
+      inherit self buildLibrarySet;
     };
 in
 lib.makeScope newScope mkAgdaPackages

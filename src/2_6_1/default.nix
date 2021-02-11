@@ -1,14 +1,11 @@
-{ callPackage, buildLibrarySet, self, ghcWithPackages, ... }:
+{ buildLibrarySet, self, ... }:
 
 {
   standard-library = let
-    args = {
-      inherit ghcWithPackages;
-    };
   in buildLibrarySet "standard-library" "1.5" {
-    "1.5" = args;
-    "1.4" = args;
-    "1.3" = args;
+    "1.5" = {};
+    "1.4" = {};
+    "1.3" = {};
   };
 
   agda-prelude = buildLibrarySet "agda-prelude" "compat-2.6.1" {
