@@ -10,10 +10,10 @@ buildGitHub v {
     standard-library
   ];
 
-  # preBuild = ''
-  #   echo "module Everything where" > Everything.agda
-  #   find src -name '*.agda' | sed -e 's/src\///;s/\//./g;s/\.agda$//;s/^/import /' >> Everything.agda
-  # '';
+  preBuild = ''
+    echo "module Everything where" > Everything.agda
+    find src -name '*.agda' | sed -e 's/src\///;s/\//./g;s/\.agda$//;s/^/import /' >> Everything.agda
+  '';
 
   meta = with lib; {
     description =

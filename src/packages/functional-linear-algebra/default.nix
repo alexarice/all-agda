@@ -1,4 +1,4 @@
-v:
+{version, ...}@v:
 { lib, buildGitHub, standard-library }:
 
 buildGitHub v {
@@ -7,6 +7,10 @@ buildGitHub v {
   owner = "ryanorendorff";
 
   buildInputs = [ standard-library ];
+
+  preConfigure = if version >= "0.2" then ''
+    sh generate-everything.sh
+  '' else null;
 
   meta = with lib; {
     homepage = "https://github.com/ryanorendorff/functional-linear-algebra";

@@ -34,7 +34,9 @@ let
 
       agda-prelude = callPackage apkgs.agda-prelude."compat-2.6.1" { };
 
-      agda-categories = callPackage apkgs.agda-categories."0.1.5" { };
+      agda-categories = self.agda-categories-0_1_5;
+
+      agda-categories-0_1_5 = callPackage apkgs.agda-categories."0.1.5" { };
 
       agda-categories-0_1_4 = callPackage apkgs.agda-categories."0.1.4" {
         standard-library = self.standard-library-1_4;
@@ -42,10 +44,21 @@ let
 
       cubical = callPackage apkgs.cubical."0.2" { };
 
-      # functional-linear-algebra = callPackage
-      #   ../development/libraries/agda/functional-linear-algebra { };
+      functional-linear-algebra = self.functional-linear-algebra-0_2;
 
-      # generic = callPackage ../development/libraries/agda/generic { };
+      functional-linear-algebra-0_2 = callPackage apkgs.functional-linear-algebra."0.2" { };
+
+      functional-linear-algebra-0_1 = callPackage apkgs.functional-linear-algebra."0.1" {
+        standard-library = self.standard-library-1_4;
+      };
+
+      generic = self.generic-0_1_0_2;
+
+      generic-0_1_0_2 = callPackage apkgs.generic."0.1.0.2" { };
+
+      generic-0_1_0_1 = callPackage apkgs.generic."0.1.0.1" {
+        standard-library = self.standard-library-1_4;
+      };
     };
 in
 lib.makeScope newScope mkAgdaPackages
