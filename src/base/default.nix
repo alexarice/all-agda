@@ -1,11 +1,11 @@
-{ pkgs, lib, newScope, Agda, packages }:
+{ pkgs, lib, newScope, Agda, aversion }:
 let
   apkgs = import ../agdaPackages.nix;
   mkAgdaPackages = self:
     let
       callPackage = self.callPackage;
       buildLibrarySet = callPackage ../../build-support/buildLibrarySet {
-        inherit apkgs callPackage;
+        inherit apkgs callPackage aversion;
       };
       inherit (callPackage ../../build-support/agda {
         inherit (Agda) agda agda-mode script;
@@ -25,8 +25,6 @@ let
         Agda = self.agda;
         inherit epkgs;
       };
-    } // packages {
-      inherit self buildLibrarySet;
-    };
+    } // (lib.mapAttrs (n: v: buildLibrarySet n v self) (lib.filterAttrs (n: v: lib.any (x: builtins.elem aversion x.agda) (builtins.attrValues v)) apkgs));
 in
 lib.makeScope newScope mkAgdaPackages

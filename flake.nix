@@ -22,7 +22,7 @@
             rev = "e12f391d2539b62a62d18aef74149a9a4695a871";
             sha256 = "1lk2ayj87kclwcj83hkw7hg6mdli9fy8wk57hjrbm2b74rk2jw7f";
           };
-          packages = import ./src/master;
+          aversion = "master";
         };
 
         # Agda 2.6.1.2
@@ -31,7 +31,7 @@
             rev = "v2.6.1.3";
             sha256 = "1zl7c0rb5rg867a431apxlzj2flg3hjidamqa5prc1bzpmfaywyz";
           };
-          packages = import ./src/2_6_1;
+          aversion = "2.6.1";
         };
       };
 

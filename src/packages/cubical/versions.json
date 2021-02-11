@@ -1,10 +1,14 @@
 {
   "0.2": {
     "rev": "v0.2",
-    "sha256": "07qlp2f189jvzbn3aqvpqk2zxpkmkxhhkjsn62iq436kxqj3z6c2"
+    "sha256": "07qlp2f189jvzbn3aqvpqk2zxpkmkxhhkjsn62iq436kxqj3z6c2",
+    "agda": [ "2.6.1" ],
+    "dep": {}
   },
   "devel": {
     "rev": "b8372badc7112259d76eef7fe26401eb77050c5d",
-    "sha256": "0449jw0qzn1vc1qn52ifkrmswx6i287y177k68niah6k6cxk7wi5"
+    "sha256": "0449jw0qzn1vc1qn52ifkrmswx6i287y177k68niah6k6cxk7wi5",
+    "agda": [ "master" ],
+    "dep": {}
   }
 }

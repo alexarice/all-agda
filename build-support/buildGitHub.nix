@@ -1,5 +1,5 @@
 { mkDerivation, fetchFromGitHub }:
-{ version, rev, sha256 }:
+{ version, rev, sha256, ... }:
 { owner, repo, ... }@args:
 
 

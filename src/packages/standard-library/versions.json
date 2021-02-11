@@ -1,18 +1,26 @@
 {
   "1.3": {
     "rev": "v1.3",
-    "sha256": "18kl20z3bjfgx5m3nvrdj5776qmpi7jl2p12pqybsls2lf86m0d5"
+    "sha256": "18kl20z3bjfgx5m3nvrdj5776qmpi7jl2p12pqybsls2lf86m0d5",
+    "agda": [ "2.6.1" ],
+    "dep": {}
   },
   "1.4": {
     "rev": "v1.4",
-    "sha256": "1asjbisb7pfkgzqy7gf9b23z63bba8l8p1wqfd6ff5ddgqwj3dhp"
+    "sha256": "1asjbisb7pfkgzqy7gf9b23z63bba8l8p1wqfd6ff5ddgqwj3dhp",
+    "agda": [ "2.6.1" ],
+    "dep": {}
   },
   "1.5": {
     "rev": "v1.5",
-    "sha256": "16fcb7ssj6kj687a042afaa2gq48rc8abihpm14k684ncihb2k4w"
+    "sha256": "16fcb7ssj6kj687a042afaa2gq48rc8abihpm14k684ncihb2k4w",
+    "agda": [ "2.6.1" ],
+    "dep": {}
   },
   "experimental": {
     "rev": "experimental",
-    "sha256": "1a14lcxhxm5gqlcvzjgzsg072mz3d9zczxmnbsk4kcpb2pszpr4w"
+    "sha256": "1a14lcxhxm5gqlcvzjgzsg072mz3d9zczxmnbsk4kcpb2pszpr4w",
+    "agda": [ ],
+    "dep": {}
   }
 }
