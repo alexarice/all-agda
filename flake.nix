@@ -35,6 +35,11 @@
         };
       };
 
+      overlay = _: _: {
+        inherit (self.legacyPackages."x86_64-linux") agdaPackages-master agdaPackages-2_6_1;
+        inherit (self.packaegs."x86_64-linux") agda-master agda-2_6_1;
+      };
+
       packages."x86_64-linux" = {
         agda-master = self.legacyPackages."x86_64-linux".agdaPackages-master.agda;
         agda-2_6_1 = self.legacyPackages."x86_64-linux".agdaPackages-2_6_1.agda;
