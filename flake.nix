@@ -46,7 +46,7 @@
       };
 
       devShell."x86_64-linux" = pkgs.mkShell {
-        buildInputs = [ (self.packages."x86_64-linux".agda-master.withPackages (p: [ p.cubical ]))];
+        buildInputs = [ (self.packages."x86_64-linux".agda-master.withPackages (p: [ p.cubical ])) ];
       };
     };
 }

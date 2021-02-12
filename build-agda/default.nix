@@ -6,7 +6,6 @@
 , compiler-nix-name ? "ghc884"
 , writeScript
 }:
-
 let
   a = materialized: haskell-nix.cabalProject {
     src = fetchFromGitHub {
@@ -40,7 +39,8 @@ let
     #!/bin/sh
     cp -r ${(a null).plan-nix} ./materialized/${rev} 
   '';
-in {
+in
+{
   inherit ((a (../materialized + "/${rev}")).Agda.components.exes) agda agda-mode;
   inherit script;
 }

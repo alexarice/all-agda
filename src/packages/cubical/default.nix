@@ -1,4 +1,4 @@
-{version, ...}@v:
+{ version, ... }@v:
 { lib, buildGitHub, ghc, glibcLocales }:
 
 buildGitHub v {
