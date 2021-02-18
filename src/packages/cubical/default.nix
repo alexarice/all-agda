@@ -15,7 +15,7 @@ buildGitHub v {
     make
   '';
 
-  patches = lib.optional (version == "master") [ ./no_werror_patch.txt ];
+  patches = lib.optional (version == "devel") [ ./no_werror_patch.txt ];
 
   meta = with lib; {
     description =
