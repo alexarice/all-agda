@@ -19,8 +19,8 @@
         # Development Agda
         agdaPackages-master = pkgs.callPackage ./src/base {
           Agda = buildAgda {
-            rev = "e12f391d2539b62a62d18aef74149a9a4695a871";
-            sha256 = "1lk2ayj87kclwcj83hkw7hg6mdli9fy8wk57hjrbm2b74rk2jw7f";
+            rev = "1bac8797a5987e07ec28284807f57e0cddeb2ba9";
+            sha256 = "1d3f1vixxfwvvrafhhnlq9k0flqyfbiwgqinx2xl1arw9xwnp84m";
           };
           aversion = "master";
         };
