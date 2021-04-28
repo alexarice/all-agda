@@ -1,4 +1,12 @@
 {
+  "0.3": {
+    "rev": "v0.3",
+    "sha256": "032gl35x1qzaigc3hbg9dc40zr0nyjld175cb9m8b15rlz9xzjn2",
+    "agda": [ "2.6.1" ],
+    "dep": {
+      "standard-library": "1.6"
+    }
+  },
   "0.2": {
     "rev": "v0.2",
     "sha256": "1dz7kh92df23scl1pkhn70n1f2v3d0x84liphn9kpsd6wlsxccxc",

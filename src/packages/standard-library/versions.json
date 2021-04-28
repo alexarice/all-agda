@@ -17,6 +17,12 @@
     "agda": [ "2.6.1" ],
     "dep": {}
   },
+  "1.6": {
+    "rev": "v1.6",
+    "sha256": "1smvnid7r1mc4lp34pfrbzgzrcl0gmw0dlkga8z0r3g2zhj98lz1",
+    "agda": [ "2.6.1" ],
+    "dep": {}
+  },
   "experimental": {
     "rev": "experimental",
     "sha256": "1a14lcxhxm5gqlcvzjgzsg072mz3d9zczxmnbsk4kcpb2pszpr4w",
