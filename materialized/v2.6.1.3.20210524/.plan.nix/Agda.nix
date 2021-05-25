@@ -8,10 +8,15 @@
   , config
   , ... }:
   {
-    flags = { cpphs = false; debug = false; enable-cluster-counting = false; };
+    flags = {
+      cpphs = false;
+      debug = false;
+      enable-cluster-counting = false;
+      optimise-heavily = false;
+      };
     package = {
       specVersion = "1.10";
-      identifier = { name = "Agda"; version = "2.6.2"; };
+      identifier = { name = "Agda"; version = "2.6.1.3.20210524"; };
       license = "LicenseRef-OtherLicense";
       copyright = "(c) 2005-2020 The Agda Team.";
       maintainer = "Ulf Norell <ulfn@chalmers.se>";
@@ -23,11 +28,11 @@
       buildType = "Custom";
       isLocal = true;
       setup-depends = [
-        (hsPkgs.buildPackages.base or (pkgs.buildPackages.base or (errorHandler.buildToolDepError "base")))
-        (hsPkgs.buildPackages.Cabal or (pkgs.buildPackages.Cabal or (errorHandler.buildToolDepError "Cabal")))
-        (hsPkgs.buildPackages.directory or (pkgs.buildPackages.directory or (errorHandler.buildToolDepError "directory")))
-        (hsPkgs.buildPackages.filepath or (pkgs.buildPackages.filepath or (errorHandler.buildToolDepError "filepath")))
-        (hsPkgs.buildPackages.process or (pkgs.buildPackages.process or (errorHandler.buildToolDepError "process")))
+        (hsPkgs.buildPackages.base or (pkgs.buildPackages.base or (errorHandler.setupDepError "base")))
+        (hsPkgs.buildPackages.Cabal or (pkgs.buildPackages.Cabal or (errorHandler.setupDepError "Cabal")))
+        (hsPkgs.buildPackages.directory or (pkgs.buildPackages.directory or (errorHandler.setupDepError "directory")))
+        (hsPkgs.buildPackages.filepath or (pkgs.buildPackages.filepath or (errorHandler.setupDepError "filepath")))
+        (hsPkgs.buildPackages.process or (pkgs.buildPackages.process or (errorHandler.setupDepError "process")))
         ];
       detailLevel = "FullDetails";
       licenseFiles = [ "LICENSE" ];
@@ -82,6 +87,8 @@
       extraSrcFiles = [
         "CHANGELOG.md"
         "README.md"
+        "doc/release-notes/2.6.1.3.md"
+        "doc/release-notes/2.6.1.2.md"
         "doc/release-notes/2.6.1.1.md"
         "doc/release-notes/2.6.1.md"
         "doc/release-notes/2.6.0.1.md"
@@ -113,7 +120,8 @@
         "doc/release-notes/2.2.2.md"
         "doc/release-notes/2.2.4.md"
         "doc/release-notes/2.2.0.md"
-        "stack-8.10.3.yaml"
+        "doc/user-manual.pdf"
+        "stack-8.10.4.yaml"
         "stack-8.8.4.yaml"
         "stack-8.6.5.yaml"
         "stack-8.4.4.yaml"
@@ -125,7 +133,7 @@
       };
     components = {
       "library" = {
-        depends = (((((([
+        depends = ((((((([
           (hsPkgs."aeson" or (errorHandler.buildDepError "aeson"))
           (hsPkgs."array" or (errorHandler.buildDepError "array"))
           (hsPkgs."async" or (errorHandler.buildDepError "async"))
@@ -151,6 +159,7 @@
           (hsPkgs."monad-control" or (errorHandler.buildDepError "monad-control"))
           (hsPkgs."mtl" or (errorHandler.buildDepError "mtl"))
           (hsPkgs."murmur-hash" or (errorHandler.buildDepError "murmur-hash"))
+          (hsPkgs."parallel" or (errorHandler.buildDepError "parallel"))
           (hsPkgs."pretty" or (errorHandler.buildDepError "pretty"))
           (hsPkgs."process" or (errorHandler.buildDepError "process"))
           (hsPkgs."regex-tdfa" or (errorHandler.buildDepError "regex-tdfa"))
@@ -158,17 +167,17 @@
           (hsPkgs."stm" or (errorHandler.buildDepError "stm"))
           (hsPkgs."strict" or (errorHandler.buildDepError "strict"))
           (hsPkgs."template-haskell" or (errorHandler.buildDepError "template-haskell"))
+          (hsPkgs."text" or (errorHandler.buildDepError "text"))
           (hsPkgs."time" or (errorHandler.buildDepError "time"))
+          (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))
           (hsPkgs."unordered-containers" or (errorHandler.buildDepError "unordered-containers"))
           (hsPkgs."uri-encode" or (errorHandler.buildDepError "uri-encode"))
           (hsPkgs."zlib" or (errorHandler.buildDepError "zlib"))
-          ] ++ (pkgs.lib).optional (flags.enable-cluster-counting) (hsPkgs."text-icu" or (errorHandler.buildDepError "text-icu"))) ++ (pkgs.lib).optional (system.isWindows) (hsPkgs."Win32" or (errorHandler.buildDepError "Win32"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).ge "8.6.4" && (compiler.isGhc && (compiler.version).lt "9.1")) (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).ge "8.4" && (compiler.isGhc && (compiler.version).lt "8.6.4")) (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).lt "8.4") (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ [
-          (hsPkgs."text" or (errorHandler.buildDepError "text"))
-          ]) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).ge "8.4") (hsPkgs."ghc-compact" or (errorHandler.buildDepError "ghc-compact"));
+          ] ++ (pkgs.lib).optional (flags.enable-cluster-counting) (hsPkgs."text-icu" or (errorHandler.buildDepError "text-icu"))) ++ (pkgs.lib).optional (system.isWindows) (hsPkgs."Win32" or (errorHandler.buildDepError "Win32"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).gt "9.0.1") (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).ge "8.6.4" && (compiler.isGhc && (compiler.version).le "9.0.1")) (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).ge "8.4" && (compiler.isGhc && (compiler.version).lt "8.6.4")) (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).lt "8.4") (hsPkgs."transformers" or (errorHandler.buildDepError "transformers"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).lt "8.4.1" || compiler.isGhc && (compiler.version).gt "8.4.3") (hsPkgs."text" or (errorHandler.buildDepError "text"))) ++ (pkgs.lib).optional (compiler.isGhc && (compiler.version).ge "8.4") (hsPkgs."ghc-compact" or (errorHandler.buildDepError "ghc-compact"));
         build-tools = [
-          (hsPkgs.buildPackages.alex or (pkgs.buildPackages.alex or (errorHandler.buildToolDepError "alex")))
-          (hsPkgs.buildPackages.happy or (pkgs.buildPackages.happy or (errorHandler.buildToolDepError "happy")))
-          ] ++ (pkgs.lib).optional (flags.cpphs) (hsPkgs.buildPackages.cpphs or (pkgs.buildPackages.cpphs or (errorHandler.buildToolDepError "cpphs")));
+          (hsPkgs.buildPackages.alex.components.exes.alex or (pkgs.buildPackages.alex or (errorHandler.buildToolDepError "alex:alex")))
+          (hsPkgs.buildPackages.happy.components.exes.happy or (pkgs.buildPackages.happy or (errorHandler.buildToolDepError "happy:happy")))
+          ] ++ (pkgs.lib).optional (flags.cpphs) (hsPkgs.buildPackages.cpphs.components.exes.cpphs or (pkgs.buildPackages.cpphs or (errorHandler.buildToolDepError "cpphs:cpphs")));
         buildable = (if compiler.isGhc && (compiler.version).eq "8.6.1"
           then false
           else true) && (if system.isWindows && (compiler.isGhc && (compiler.version).eq "8.6.3")
@@ -464,6 +473,7 @@
           "Agda/Utils/Benchmark"
           "Agda/Utils/BiMap"
           "Agda/Utils/CallStack"
+          "Agda/Utils/Char"
           "Agda/Utils/Cluster"
           "Agda/Utils/Empty"
           "Agda/Utils/Environment"
@@ -506,6 +516,7 @@
           "Agda/Utils/Pointer"
           "Agda/Utils/POMonoid"
           "Agda/Utils/Pretty"
+          "Agda/Utils/RangeMap"
           "Agda/Utils/SemiRing"
           "Agda/Utils/Semigroup"
           "Agda/Utils/Singleton"
@@ -549,104 +560,6 @@
           buildable = true;
           modules = [ "Paths_Agda" ];
           hsSourceDirs = [ "src/agda-mode" ];
-          mainPath = [ "Main.hs" ];
-          };
-        };
-      tests = {
-        "agda-tests" = {
-          depends = [
-            (hsPkgs."Agda" or (errorHandler.buildDepError "Agda"))
-            (hsPkgs."array" or (errorHandler.buildDepError "array"))
-            (hsPkgs."base" or (errorHandler.buildDepError "base"))
-            (hsPkgs."bytestring" or (errorHandler.buildDepError "bytestring"))
-            (hsPkgs."containers" or (errorHandler.buildDepError "containers"))
-            (hsPkgs."directory" or (errorHandler.buildDepError "directory"))
-            (hsPkgs."filepath" or (errorHandler.buildDepError "filepath"))
-            (hsPkgs."filemanip" or (errorHandler.buildDepError "filemanip"))
-            (hsPkgs."ieee754" or (errorHandler.buildDepError "ieee754"))
-            (hsPkgs."monad-control" or (errorHandler.buildDepError "monad-control"))
-            (hsPkgs."mtl" or (errorHandler.buildDepError "mtl"))
-            (hsPkgs."process" or (errorHandler.buildDepError "process"))
-            (hsPkgs."process-extras" or (errorHandler.buildDepError "process-extras"))
-            (hsPkgs."QuickCheck" or (errorHandler.buildDepError "QuickCheck"))
-            (hsPkgs."regex-tdfa" or (errorHandler.buildDepError "regex-tdfa"))
-            (hsPkgs."tasty" or (errorHandler.buildDepError "tasty"))
-            (hsPkgs."tasty-hunit" or (errorHandler.buildDepError "tasty-hunit"))
-            (hsPkgs."tasty-quickcheck" or (errorHandler.buildDepError "tasty-quickcheck"))
-            (hsPkgs."tasty-silver" or (errorHandler.buildDepError "tasty-silver"))
-            (hsPkgs."temporary" or (errorHandler.buildDepError "temporary"))
-            (hsPkgs."unix-compat" or (errorHandler.buildDepError "unix-compat"))
-            (hsPkgs."uri-encode" or (errorHandler.buildDepError "uri-encode"))
-            ] ++ [ (hsPkgs."text" or (errorHandler.buildDepError "text")) ];
-          buildable = (if compiler.isGhc && (compiler.version).eq "8.6.1"
-            then false
-            else true) && (if system.isWindows && (compiler.isGhc && (compiler.version).eq "8.6.3")
-            then false
-            else true);
-          modules = [
-            "Bugs/Tests"
-            "Compiler/Tests"
-            "Fail/Tests"
-            "Interactive/Tests"
-            "Internal/Compiler/MAlonzo/Encode"
-            "Internal/Helpers"
-            "Internal/Interaction/Highlighting/Precise"
-            "Internal/Interaction/Highlighting/Range"
-            "Internal/Interaction/Library"
-            "Internal/Interaction/Options"
-            "Internal/Syntax/Abstract/Name"
-            "Internal/Syntax/Common"
-            "Internal/Syntax/Concrete/Name"
-            "Internal/Syntax/Internal"
-            "Internal/Syntax/Parser/Parser"
-            "Internal/Syntax/Position"
-            "Internal/Termination/CallGraph"
-            "Internal/Termination/CallMatrix"
-            "Internal/Termination/Order"
-            "Internal/Termination/Semiring"
-            "Internal/Termination/SparseMatrix"
-            "Internal/Termination/Termination"
-            "Internal/Tests"
-            "Internal/TypeChecking"
-            "Internal/TypeChecking/Free"
-            "Internal/TypeChecking/Free/Lazy"
-            "Internal/TypeChecking/Generators"
-            "Internal/TypeChecking/Irrelevance"
-            "Internal/TypeChecking/Monad/Base"
-            "Internal/TypeChecking/Positivity"
-            "Internal/TypeChecking/Positivity/Occurrence"
-            "Internal/TypeChecking/Rules/LHS/Problem"
-            "Internal/TypeChecking/SizedTypes"
-            "Internal/TypeChecking/SizedTypes/Syntax"
-            "Internal/TypeChecking/SizedTypes/WarshallSolver"
-            "Internal/TypeChecking/Substitute"
-            "Internal/Utils/AssocList"
-            "Internal/Utils/Bag"
-            "Internal/Utils/BiMap"
-            "Internal/Utils/Cluster"
-            "Internal/Utils/Either"
-            "Internal/Utils/Favorites"
-            "Internal/Utils/FileName"
-            "Internal/Utils/Graph/AdjacencyMap/Unidirectional"
-            "Internal/Utils/IntSet"
-            "Internal/Utils/List"
-            "Internal/Utils/ListT"
-            "Internal/Utils/Maybe/Strict"
-            "Internal/Utils/Monoid"
-            "Internal/Utils/NonEmptyList"
-            "Internal/Utils/PartialOrd"
-            "Internal/Utils/Permutation"
-            "Internal/Utils/SmallSet"
-            "Internal/Utils/Three"
-            "Internal/Utils/Trie"
-            "Internal/Utils/Warshall"
-            "LaTeXAndHTML/Tests"
-            "LibSucceed/Tests"
-            "Succeed/Tests"
-            "UserManual/Tests"
-            "Utils"
-            ];
-          hsSourceDirs = [ "test/" ];
           mainPath = [ "Main.hs" ];
           };
         };

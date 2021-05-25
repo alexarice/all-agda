@@ -5,6 +5,7 @@
 , sha256
 , compiler-nix-name ? "ghc884"
 , writeScript
+, sha256map ? null
 }:
 let
   a = materialized: haskell-nix.cabalProject {
@@ -13,8 +14,8 @@ let
       repo = "agda";
       inherit rev sha256;
     };
-    inherit compiler-nix-name;
-    index-state = "2021-01-23T00:00:00Z";
+    inherit compiler-nix-name sha256map;
+    index-state = "2021-05-24T00:00:00Z";
     inherit materialized;
     modules = [{
       # Credit to @michaelpj on irc for this fix
