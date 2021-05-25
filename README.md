@@ -8,3 +8,12 @@ Binaries of all packages have been pushed to cachix and can be accessed by runni
 ```
 cachix use all-agda
 ```
+
+## Updating
+
+To update materialisation run:
+
+```
+nix build .#agdaPackages-${version}.agda.passthru.updateScript
+./result
+```
