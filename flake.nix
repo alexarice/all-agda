@@ -27,11 +27,8 @@
 
         agdaPackages-2_6_2 = pkgs.callPackage ./src/base {
           Agda = buildAgda {
-            rev = "v2.6.1.3.20210524";
-            sha256 = "0qqxinv2gngq5sawavym69zx71v02mglnjfkhr6jlhcakv4bmj60";
-            sha256map = {
-              "https://github.com/agda/text-icu.git"."1925609610459faa93c151c53dc76cc66e3d627c" = "0bvfbyb6x6fl4wn5n8kjcq2ks4cv7if20h0bydrdkcjc7r8lx156";
-            };
+            rev = "v2.6.2";
+            sha256 = "1ccmryw6vs8d87d5zmjl0kr2kvyd1zxl73344fa7yzqgg2kw1da6";
           };
           aversion = "2.6.2";
         };
