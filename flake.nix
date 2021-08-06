@@ -44,8 +44,8 @@
       };
 
       overlay = _: _: {
-        inherit (self.legacyPackages."x86_64-linux") agdaPackages-master agdaPackages-2_6_1;
-        inherit (self.packages."x86_64-linux") agda-master agda-2_6_1;
+        inherit (self.legacyPackages."x86_64-linux") agdaPackages-master agdaPackages-2_6_1 agdaPackages-2_6_2;
+        inherit (self.packages."x86_64-linux") agda-master agda-2_6_1 agda-2_6_2;
       };
 
       packages."x86_64-linux" = {
