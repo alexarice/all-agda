@@ -2,7 +2,6 @@
   pkgs = hackage:
     {
       packages = {
-        "ieee754".revision = (((hackage."ieee754")."0.8.0").revisions).default;
         "happy".revision = (((hackage."happy")."1.20.0").revisions).default;
         "equivalence".revision = (((hackage."equivalence")."0.3.5").revisions).default;
         "ghc-boot-th".revision = (((hackage."ghc-boot-th")."8.10.7").revisions).default;
@@ -44,6 +43,8 @@
         "process".revision = (((hackage."process")."1.6.13.2").revisions).default;
         "th-abstraction".revision = (((hackage."th-abstraction")."0.4.2.0").revisions).default;
         "regex-base".revision = (((hackage."regex-base")."0.94.0.1").revisions).default;
+        "transformers-base".revision = (((hackage."transformers-base")."0.4.5.2").revisions).default;
+        "transformers-base".flags.orphaninstances = true;
         "vector".revision = (((hackage."vector")."0.12.3.0").revisions).default;
         "vector".flags.unsafechecks = false;
         "vector".flags.internalchecks = false;
@@ -52,6 +53,7 @@
         "uri-encode".revision = (((hackage."uri-encode")."1.5.0.7").revisions).default;
         "uri-encode".flags.tools = false;
         "uri-encode".flags.network-uri = true;
+        "parallel".revision = (((hackage."parallel")."3.2.2.0").revisions).default;
         "comonad".revision = (((hackage."comonad")."5.0.8").revisions).default;
         "comonad".flags.distributive = true;
         "comonad".flags.containers = true;
@@ -61,7 +63,6 @@
         "split".revision = (((hackage."split")."0.2.3.4").revisions).default;
         "time-compat".revision = (((hackage."time-compat")."1.9.6").revisions).default;
         "time-compat".flags.old-locale = false;
-        "geniplate-mirror".revision = (((hackage."geniplate-mirror")."0.7.7").revisions).default;
         "base-orphans".revision = (((hackage."base-orphans")."0.8.4").revisions).default;
         "base-compat".revision = (((hackage."base-compat")."0.11.2").revisions).default;
         "base-compat-batteries".revision = (((hackage."base-compat-batteries")."0.11.2").revisions).default;
@@ -75,6 +76,7 @@
         "boxes".revision = (((hackage."boxes")."0.1.5").revisions).default;
         "alex".revision = (((hackage."alex")."3.2.6").revisions).default;
         "alex".flags.small_base = true;
+        "monad-control".revision = (((hackage."monad-control")."1.0.2.3").revisions).default;
         "mtl".revision = (((hackage."mtl")."2.2.2").revisions).default;
         "data-hash".revision = (((hackage."data-hash")."0.2.0.1").revisions).default;
         "transformers".revision = (((hackage."transformers")."0.5.6.2").revisions).default;
@@ -133,6 +135,7 @@
         "binary".revision = (((hackage."binary")."0.8.8.0").revisions).default;
         "uuid-types".revision = (((hackage."uuid-types")."1.0.5").revisions).default;
         "containers".revision = (((hackage."containers")."0.6.5.1").revisions).default;
+        "case-insensitive".revision = (((hackage."case-insensitive")."1.2.1.0").revisions).default;
         };
       compiler = {
         version = "8.10.7";
@@ -176,6 +179,7 @@
         packages = {
           "Agda" = {
             flags = {
+              "optimise-heavily" = lib.mkOverride 900 false;
               "cpphs" = lib.mkOverride 900 false;
               "enable-cluster-counting" = lib.mkOverride 900 false;
               "debug" = lib.mkOverride 900 false;
@@ -186,10 +190,10 @@
     ({ lib, ... }:
       {
         packages = {
+          "transformers-base".components.library.planned = lib.mkOverride 900 true;
           "blaze-builder".components.library.planned = lib.mkOverride 900 true;
           "base-orphans".components.library.planned = lib.mkOverride 900 true;
           "ghc-compact".components.library.planned = lib.mkOverride 900 true;
-          "geniplate-mirror".components.library.planned = lib.mkOverride 900 true;
           "indexed-traversable".components.library.planned = lib.mkOverride 900 true;
           "network-uri".components.library.planned = lib.mkOverride 900 true;
           "these".components.library.planned = lib.mkOverride 900 true;
@@ -220,7 +224,6 @@
           "Agda".components.library.planned = lib.mkOverride 900 true;
           "array".components.library.planned = lib.mkOverride 900 true;
           "th-compat".components.library.planned = lib.mkOverride 900 true;
-          "ieee754".components.library.planned = lib.mkOverride 900 true;
           "scientific".components.library.planned = lib.mkOverride 900 true;
           "binary".components.library.planned = lib.mkOverride 900 true;
           "Agda".components.exes."agda-mode".planned = lib.mkOverride 900 true;
@@ -240,6 +243,7 @@
           "regex-base".components.library.planned = lib.mkOverride 900 true;
           "uri-encode".components.library.planned = lib.mkOverride 900 true;
           "th-abstraction".components.library.planned = lib.mkOverride 900 true;
+          "parallel".components.library.planned = lib.mkOverride 900 true;
           "vector".components.library.planned = lib.mkOverride 900 true;
           "transformers".components.library.planned = lib.mkOverride 900 true;
           "parsec".components.library.planned = lib.mkOverride 900 true;
@@ -260,7 +264,9 @@
           "transformers-compat".components.library.planned = lib.mkOverride 900 true;
           "integer-gmp".components.library.planned = lib.mkOverride 900 true;
           "Agda".components.exes."agda".planned = lib.mkOverride 900 true;
+          "case-insensitive".components.library.planned = lib.mkOverride 900 true;
           "boxes".components.library.planned = lib.mkOverride 900 true;
+          "monad-control".components.library.planned = lib.mkOverride 900 true;
           "containers".components.library.planned = lib.mkOverride 900 true;
           "aeson".components.library.planned = lib.mkOverride 900 true;
           "haskeline".components.library.planned = lib.mkOverride 900 true;

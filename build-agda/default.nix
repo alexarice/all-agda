@@ -3,7 +3,7 @@
 , lib
 , rev
 , sha256
-, compiler-nix-name ? "ghc884"
+, compiler-nix-name ? "ghc8107"
 , writeScript
 , sha256map ? null
 }:

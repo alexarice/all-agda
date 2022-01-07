@@ -1,4 +1,10 @@
 {
+  "0.3": {
+    "rev": "v0.3",
+    "sha256": "11pvsbswch77hyc4bz1fv1mn2gl01qalhfx7icx0hd0zghbnv8sx",
+    "agda": [ "2.6.2" ],
+    "dep": {}
+  },
   "0.2": {
     "rev": "v0.2",
     "sha256": "07qlp2f189jvzbn3aqvpqk2zxpkmkxhhkjsn62iq436kxqj3z6c2",
@@ -6,8 +12,8 @@
     "dep": {}
   },
   "devel": {
-    "rev": "074dbdba09f8e59d7f05cdebd33e16308567efd2",
-    "sha256": "14ckzcyi3mzcfh547fl0f4c6kiw4h655hynlssv88nz8dm4rsa91",
+    "rev": "ce8724530361f18e237401ee89d3d26b54d4cfba",
+    "sha256": "0jb7nnjlzqxvzvj2zil7jh95yind3bnmg8kykh36vgw3byvnx228",
     "agda": [ "master" ],
     "dep": {}
   }

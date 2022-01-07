@@ -1,10 +1,15 @@
 diff --git a/GNUmakefile b/GNUmakefile
-index 357d71f..3d5a3fa 100644
+index 723f438..3ebe1ba 100644
 --- a/GNUmakefile
 +++ b/GNUmakefile
 @@ -1,4 +1,4 @@
--AGDA_EXEC=agda -W error
-+AGDA_EXEC=agda
+-AGDA_EXEC?=agda -W error
++AGDA_EXEC?=agda
+ FIX_WHITESPACE?=fix-whitespace
  RTS_OPTIONS=+RTS -H3G -RTS
  AGDA=$(AGDA_EXEC) $(RTS_OPTIONS)
- EVERYTHINGS=runhaskell ./Everythings.hs
+@@ -58,4 +58,3 @@ listings: $(wildcard Cubical/**/*.agda)
+ .PHONY : clean
+ clean:
+ 	find . -type f -name '*.agdai' -delete
+-
