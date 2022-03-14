@@ -4,9 +4,11 @@
   inputs = {
     haskellNix = {
       url = "github:input-output-hk/haskell.nix";
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/1882c6b7368fd284ad01b0a5b5601ef136321292";
     };
-    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs.follows = "haskellNix/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/1882c6b7368fd284ad01b0a5b5601ef136321292";
+    nixpkgs.url = "github:NixOS/nixpkgs/1882c6b7368fd284ad01b0a5b5601ef136321292";
+
     flake-utils.url = "github:numtide/flake-utils";
   };
 
