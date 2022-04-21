@@ -10,11 +10,5 @@
     "sha256": "07qlp2f189jvzbn3aqvpqk2zxpkmkxhhkjsn62iq436kxqj3z6c2",
     "agda": [ "2.6.1" ],
     "dep": {}
-  },
-  "devel": {
-    "rev": "ce8724530361f18e237401ee89d3d26b54d4cfba",
-    "sha256": "0jb7nnjlzqxvzvj2zil7jh95yind3bnmg8kykh36vgw3byvnx228",
-    "agda": [ "master" ],
-    "dep": {}
   }
 }

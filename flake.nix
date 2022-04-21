@@ -25,16 +25,16 @@
         # Development Agda
         agdaPackages-master = pkgs.callPackage ./src/base {
           Agda = buildAgda {
-            rev = "a0b3eea0c19c47ffbe2be525316311f5795d760d";
-            sha256 = "06hqdmhlxr8air3hfpw434ycfvyjby34ng6xj0knjyfja0044sb0";
+            rev = "b612cabaae94e8b261491c3bc718ffb4805236f0";
+            sha256 = "1aix726zn7cgrpgjv6m451a5s5nvsvjq94scrh8krbwxnaxcjs1d";
           };
           aversion = "master";
         };
 
         agdaPackages-2_6_2 = pkgs.callPackage ./src/base {
           Agda = buildAgda {
-            rev = "v2.6.2.1";
-            sha256 = "0p6jh8hyyf7xg0sni2rchck2fd1wyr5v106dfxxm09krxxawh0nh";
+            rev = "v2.6.2.2";
+            sha256 = "0kskd56y71p4w1bgr15szbzjl05kfxpf1cs4bd9dnwdwfp5s0ygw";
           };
           aversion = "2.6.2";
         };
@@ -58,10 +58,6 @@
         agda-master = self.legacyPackages."${system}".agdaPackages-master.agda;
         agda-2_6_1 = self.legacyPackages."${system}".agdaPackages-2_6_1.agda;
         agda-2_6_2 = self.legacyPackages."${system}".agdaPackages-2_6_2.agda;
-      };
-
-      devShell = pkgs.mkShell {
-        buildInputs = [ (self.packages."${system}".agda-master.withPackages (p: [ p.cubical ])) ];
       };
     });
 }

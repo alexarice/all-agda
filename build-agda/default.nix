@@ -4,11 +4,10 @@
 , rev
 , sha256
 , compiler-nix-name ? "ghc8107"
-, writeScript
 , sha256map ? null
 }:
 let
-  a = materialized: haskell-nix.cabalProject {
+  a = haskell-nix.cabalProject {
     src = fetchFromGitHub {
       owner = "agda";
       repo = "agda";
@@ -16,7 +15,6 @@ let
     };
     inherit compiler-nix-name sha256map;
     index-state = "2021-05-24T00:00:00Z";
-    inherit materialized;
     modules = [{
       # Credit to @michaelpj on irc for this fix
       packages.Agda.package.buildType = lib.mkForce "Simple";
@@ -35,13 +33,7 @@ let
       '';
     }];
   };
-
-  script = writeScript "agda-${rev}-materialize" ''
-    #!/bin/sh
-    cp -r ${(a null).plan-nix} ./materialized/${rev} 
-  '';
 in
 {
-  inherit ((a (../materialized + "/${rev}")).Agda.components.exes) agda agda-mode;
-  inherit script;
+  inherit (a.Agda.components.exes) agda agda-mode;
 }
