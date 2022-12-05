@@ -8,7 +8,7 @@ let
         inherit apkgs callPackage aversion;
       };
       inherit (callPackage ../../build-support/agda {
-        inherit (Agda) agda agda-mode script;
+        inherit Agda;
         inherit self;
         inherit (pkgs.haskellPackages) ghcWithPackages;
       }) withPackages mkDerivation;

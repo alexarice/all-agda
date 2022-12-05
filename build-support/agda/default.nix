@@ -1,6 +1,6 @@
 # Builder for Agda packages.
 
-{ stdenv, lib, self, agda, agda-mode, runCommandNoCC, makeWrapper, writeText, mkShell, ghcWithPackages, script }:
+{ stdenv, lib, self, Agda, runCommandNoCC, makeWrapper, writeText, mkShell, ghcWithPackages }:
 
 with lib.strings;
 with builtins;
@@ -15,20 +15,19 @@ let
         ${(concatMapStringsSep "\n" (p: "${p}/${p.libraryFile}") pkgs')}
       '';
       pname = "agdaWithPackages";
-      version = agda.version;
+      version = Agda.version;
     in
     runCommandNoCC "${pname}-${version}"
       {
         inherit pname version;
         nativeBuildInputs = [ makeWrapper ];
         passthru = {
-          unwrapped = agda;
-          updateScript = script;
+          unwrapped = Agda;
         };
       } ''
       mkdir -p $out/bin
-      makeWrapper ${agda-mode}/bin/agda-mode $out/bin/agda-mode
-      makeWrapper ${agda}/bin/agda $out/bin/agda \
+      makeWrapper ${Agda}/bin/agda-mode $out/bin/agda-mode
+      makeWrapper ${Agda}/bin/agda $out/bin/agda \
         --add-flags "--library-file=${library-file}" \
         --add-flags "--with-compiler=${ghc}/bin/ghc" \
         --add-flags "--local-interfaces"

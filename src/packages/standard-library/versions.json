@@ -24,15 +24,15 @@
     "dep": {}
   },
   "1.7": {
-    "rev": "v1.7",
-    "sha256": "14h3jprm6924g9576v25axn9v6xnip354hvpzlcqsc5qqyj7zzjs",
+    "rev": "v1.7.1",
+    "sha256": "sha256-II+oRVrgp+8eayFWv/BAiVNclriLFTqwllvbuaUIFE4=",
     "agda": [ "2.6.2" ],
     "dep": {}
   },
   "experimental": {
     "rev": "experimental",
-    "sha256": "1a14lcxhxm5gqlcvzjgzsg072mz3d9zczxmnbsk4kcpb2pszpr4w",
-    "agda": [ ],
+    "sha256": "sha256-l2+8myyJSufXpt1Opf65AJaTMiHMDeYYbuvkvzbCjDo=",
+    "agda": [ "master" ],
     "dep": {}
   }
 }

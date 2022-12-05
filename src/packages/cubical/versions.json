@@ -1,4 +1,10 @@
 {
+  "0.4": {
+    "rev": "v0.4",
+    "sha256": "sha256-bnHz5uZXZnn1Zd36tq/veA4yT7dhJ1c+AYpgdDfSRzE=",
+    "agda": [ "2.6.2" ],
+    "dep": {}
+  },
   "0.3": {
     "rev": "v0.3",
     "sha256": "11pvsbswch77hyc4bz1fv1mn2gl01qalhfx7icx0hd0zghbnv8sx",
