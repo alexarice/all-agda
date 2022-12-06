@@ -5,7 +5,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     agda-2_6_1.url = "github:alexarice/agda/2.6.1-flake";
     agda-2_6_2.url = "github:agda/agda/v2.6.2.2";
-    agda-master.url = "github:agda/agda";
+    agda-master.url = "github:agda/agda/6a36f4f8c1c25eaacaf3d352dc39b3f0fa5d5582";
   };
 
   outputs = { self, nixpkgs, flake-utils, agda-2_6_1, agda-2_6_2, agda-master, ... }:

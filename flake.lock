@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1670264275,
-        "narHash": "sha256-ccxFQhKbkz4HsXUSk8JkbOU9pVFPGQcioaAqD1GUqfw=",
+        "lastModified": 1670283980,
+        "narHash": "sha256-dpRZHhxAHh0c2qjKBANo8KS/tg2NP/OVK0rp2N8dYi4=",
         "owner": "alexarice",
         "repo": "agda",
-        "rev": "03f3b975b1cc5060a6283781cc4484cc8c722e31",
+        "rev": "35c56664a7fc7b75fde80853ac6e4d724b3a16d6",
         "type": "github"
       },
       "original": {
@@ -46,16 +46,17 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1670254727,
-        "narHash": "sha256-jGjceBQvBi0zrk7m4Z+7nKRoX/EfF3/WsBbE+ncA/P0=",
+        "lastModified": 1670268122,
+        "narHash": "sha256-o5JfClYht0lDN7zRZsYrOCT2RKChAZETv5KwzDG8rJ8=",
         "owner": "agda",
         "repo": "agda",
-        "rev": "66e6a032017832646db026fbe73ad4e4338732de",
+        "rev": "6a36f4f8c1c25eaacaf3d352dc39b3f0fa5d5582",
         "type": "github"
       },
       "original": {
         "owner": "agda",
         "repo": "agda",
+        "rev": "6a36f4f8c1c25eaacaf3d352dc39b3f0fa5d5582",
         "type": "github"
       }
     },
