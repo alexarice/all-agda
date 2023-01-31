@@ -38,7 +38,7 @@
   "experimental": {
     "rev": "experimental",
     "sha256": "sha256-l2+8myyJSufXpt1Opf65AJaTMiHMDeYYbuvkvzbCjDo=",
-    "agda": [ "master" ],
+    "agda": [ "nightly" ],
     "dep": {}
   }
 }

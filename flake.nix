@@ -5,10 +5,11 @@
     flake-utils.url = "github:numtide/flake-utils";
     agda-2_6_1.url = "github:alexarice/agda/2.6.1-flake";
     agda-2_6_2.url = "github:agda/agda/v2.6.2.2";
-    agda-master.url = "github:agda/agda/6a36f4f8c1c25eaacaf3d352dc39b3f0fa5d5582";
+    agda-2_6_3.url = "github:agda/agda/v2.6.3";
+    agda-nightly.url = "github:agda/agda/0e85116e87e53e38cbdfa499f573970d6f78555a";
   };
 
-  outputs = { self, nixpkgs, flake-utils, agda-2_6_1, agda-2_6_2, agda-master, ... }:
+  outputs = { self, nixpkgs, flake-utils, agda-2_6_1, agda-2_6_2, agda-2_6_3, agda-nightly, ... }:
   flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
     let
       pkgs = import nixpkgs { inherit system; };
@@ -16,9 +17,14 @@
     {
       legacyPackages = {
         # Development Agda
-        agdaPackages-master = pkgs.callPackage ./src/base {
-          inherit (agda-master.packages.${system}) Agda;
-          aversion = "master";
+        agdaPackages-nightly = pkgs.callPackage ./src/base {
+          inherit (agda-nightly.packages.${system}) Agda;
+          aversion = "nightly";
+        };
+
+        agdaPackages-2_6_3 = pkgs.callPackage ./src/base {
+          inherit (agda-2_6_3.packages.${system}) Agda;
+          aversion = "2.6.3";
         };
 
         agdaPackages-2_6_2 = pkgs.callPackage ./src/base {
@@ -34,14 +40,15 @@
       };
 
       overlay = _: _: {
-        inherit (self.legacyPackages."${system}") agdaPackages-master agdaPackages-2_6_1 agdaPackages-2_6_2;
-        inherit (self.packages."${system}") agda-master agda-2_6_1 agda-2_6_2;
+        inherit (self.legacyPackages."${system}") agdaPackages-nightly agdaPackages-2_6_1 agdaPackages-2_6_2 agdaPackages-2_6_3;
+        inherit (self.packages."${system}") agda-nightly agda-2_6_1 agda-2_6_2 agda-2_6_3;
       };
 
       packages = {
-        agda-master = self.legacyPackages."${system}".agdaPackages-master.agda;
+        agda-nightly = self.legacyPackages."${system}".agdaPackages-nightly.agda;
         agda-2_6_1 = self.legacyPackages."${system}".agdaPackages-2_6_1.agda;
         agda-2_6_2 = self.legacyPackages."${system}".agdaPackages-2_6_2.agda;
+        agda-2_6_3 = self.legacyPackages."${system}".agdaPackages-2_6_3.agda;
       };
     });
 }
