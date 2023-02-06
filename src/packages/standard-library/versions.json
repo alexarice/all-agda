@@ -35,6 +35,12 @@
     "agda": [ "2.6.2" ],
     "dep": {}
   },
+  "1.7.2": {
+    "rev": "v1.7.2",
+    "sha256": "sha256-vvbyfC5+Yyx18IDikSbAAcTHHtU6krlz45Fd2YlwsBg=",
+    "agda": [ "2.6.3" ],
+    "dep": {}
+  },
   "experimental": {
     "rev": "experimental",
     "sha256": "sha256-l2+8myyJSufXpt1Opf65AJaTMiHMDeYYbuvkvzbCjDo=",
