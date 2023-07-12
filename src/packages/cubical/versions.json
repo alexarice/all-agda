@@ -1,7 +1,7 @@
 {
   "0.5": {
-    "rev": "7c45b3776ea0dca5290a35ac02084fdfaf123bd8",
-    "sha256": "sha256-X4w5TEqNgGWpNvaJE/LXE/XA/UGC/e3l0DYlJi775Mg=",
+    "rev": "v0.5",
+    "sha256": "sha256-47GOfZYwvE9TbGzdy/xSYZagTbjs/oeDpwjYUvI7z3k=",
     "agda": [ "2.6.3" ],
     "dep": {}
   },
