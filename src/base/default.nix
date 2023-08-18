@@ -9,6 +9,7 @@ let
       };
       wrapper = callPackage ../../build-support/wrapper.nix {
         inherit (pkgs.haskellPackages) ghcWithPackages;
+        inherit self;
       };
 
       agda2hsWithPackages = (wrapper {
@@ -35,7 +36,7 @@ let
         inherit epkgs;
       };
 
-      agda2hs = if agda2hs == null then null else agda2hsWithPackages [ ] // { inherit agda2hsWithPackages; };
+      agda2hs = if agda2hs == null then null else agda2hsWithPackages [ ] // { withPackages = agda2hsWithPackages; };
 
     } // (lib.mapAttrs (n: v: buildLibrarySet n v self) (lib.filterAttrs (n: v: lib.any (x: builtins.elem aversion x.agda) (builtins.attrValues v)) apkgs));
 in

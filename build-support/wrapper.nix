@@ -1,4 +1,4 @@
-{ lib, ghcWithPackages, runCommandNoCC, writeText, makeWrapper }:
+{ self, lib, ghcWithPackages, runCommandNoCC, writeText, makeWrapper }:
 { tool, name, extra ? "" }:
 
 with lib.strings;
