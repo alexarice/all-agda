@@ -1,4 +1,4 @@
-{ pkgs, lib, newScope, Agda, aversion }:
+{ pkgs, lib, newScope, Agda, aversion, agda2hs ? null }:
 let
   apkgs = import ../agdaPackages.nix;
   mkAgdaPackages = self:
@@ -7,10 +7,19 @@ let
       buildLibrarySet = callPackage ../../build-support/buildLibrarySet {
         inherit apkgs callPackage aversion;
       };
+      wrapper = callPackage ../../build-support/wrapper.nix {
+        inherit (pkgs.haskellPackages) ghcWithPackages;
+      };
+
+      agda2hsWithPackages = (wrapper {
+        tool = agda2hs;
+        name = "agda2hs";
+      }).withPackages;
+
       inherit (callPackage ../../build-support/agda {
         inherit Agda;
         inherit self;
-        inherit (pkgs.haskellPackages) ghcWithPackages;
+        inherit wrapper;
       }) withPackages mkDerivation;
     in
     {
@@ -25,6 +34,9 @@ let
         Agda = self.agda;
         inherit epkgs;
       };
+
+      agda2hs = if agda2hs == null then null else agda2hsWithPackages [ ] // { inherit agda2hsWithPackages; };
+
     } // (lib.mapAttrs (n: v: buildLibrarySet n v self) (lib.filterAttrs (n: v: lib.any (x: builtins.elem aversion x.agda) (builtins.attrValues v)) apkgs));
 in
 lib.makeScope newScope mkAgdaPackages

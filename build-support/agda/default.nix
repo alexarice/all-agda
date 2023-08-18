@@ -1,39 +1,14 @@
 # Builder for Agda packages.
 
-{ stdenv, lib, self, Agda, runCommandNoCC, makeWrapper, writeText, mkShell, ghcWithPackages }:
+{ stdenv, lib, self, Agda, wrapper }:
 
 with lib.strings;
 with builtins;
 let
-  withPackages' =
-    { pkgs
-    , ghc ? ghcWithPackages (p: with p; [ ieee ])
-    }:
-    let
-      pkgs' = if builtins.isList pkgs then pkgs else pkgs self;
-      library-file = writeText "libraries" ''
-        ${(concatMapStringsSep "\n" (p: "${p}/${p.libraryFile}") pkgs')}
-      '';
-      pname = "agdaWithPackages";
-      version = Agda.version;
-    in
-    runCommandNoCC "${pname}-${version}"
-      {
-        inherit pname version;
-        nativeBuildInputs = [ makeWrapper ];
-        passthru = {
-          unwrapped = Agda;
-        };
-      } ''
-      mkdir -p $out/bin
-      makeWrapper ${Agda}/bin/agda-mode $out/bin/agda-mode
-      makeWrapper ${Agda}/bin/agda $out/bin/agda \
-        --add-flags "--library-file=${library-file}" \
-        --add-flags "--with-compiler=${ghc}/bin/ghc" \
-        --add-flags "--local-interfaces"
-    '';
-
-  withPackages = arg: if builtins.isAttrs arg then withPackages' arg else withPackages' { pkgs = arg; };
+  inherit (wrapper {
+        tool = Agda;
+        name = "agda";
+        extra = "makeWrapper ${tool}/bin/agda-mode $out/bin/agda-mode";}) withPackages;
 
   extensions = [
     "agda"
