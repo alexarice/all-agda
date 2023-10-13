@@ -52,8 +52,8 @@
       };
 
       overlay = _: _: {
-        inherit (self.legacyPackages."${system}") agdaPackages-nightly agdaPackages-2_6_1 agdaPackages-2_6_2 agdaPackages-2_6_3;
-        inherit (self.packages."${system}") agda-nightly agda-2_6_1 agda-2_6_2 agda-2_6_3;
+        inherit (self.legacyPackages."${system}") agdaPackages-nightly agdaPackages-2_6_1 agdaPackages-2_6_2 agdaPackages-2_6_3 agdaPackages-2_6_4;
+        inherit (self.packages."${system}") agda-nightly agda-2_6_1 agda-2_6_2 agda-2_6_3 agda-2_6_4;
       };
 
       packages = {
@@ -61,6 +61,7 @@
         agda-2_6_1 = self.legacyPackages."${system}".agdaPackages-2_6_1.agda;
         agda-2_6_2 = self.legacyPackages."${system}".agdaPackages-2_6_2.agda;
         agda-2_6_3 = self.legacyPackages."${system}".agdaPackages-2_6_3.agda;
+        agda-2_6_4 = self.legacyPackages."${system}".agdaPackages-2_6_4.agda;
       };
     });
 }
