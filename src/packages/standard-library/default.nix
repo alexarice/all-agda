@@ -1,12 +1,14 @@
 v:
-{ lib, buildGitHub, haskellPackages }:
+{ lib, buildGitHub, haskellPackages, glibcLocales }:
 
 buildGitHub v {
   pname = "standard-library";
   repo = "agda-stdlib";
   owner = "agda";
 
-  nativeBuildInputs = [ (haskellPackages.ghcWithPackages (self: [ self.filemanip ])) ];
+  LC_ALL = "en_US.UTF-8";
+
+  nativeBuildInputs = [ glibcLocales (haskellPackages.ghcWithPackages (self: [ self.filemanip ])) ];
   preConfigure = ''
     runhaskell GenerateEverything.hs
   '';

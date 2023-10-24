@@ -8,13 +8,17 @@
     agda-2_6_3.url = "github:agda/agda/v2.6.3";
     agda-2_6_4.url = "github:agda/agda/v2.6.4";
     agda-nightly.url = "github:agda/agda/0e85116e87e53e38cbdfa499f573970d6f78555a";
-    agda2hs-src = {
-      url = "github:agda/agda2hs";
+    agda2hs-src-1_0 = {
+      url = "github:agda/agda2hs/v1.0";
+      flake = false;
+    };
+    agda2hs-src-1_1 = {
+      url = "github:agda/agda2hs/v1.1";
       flake = false;
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, agda-2_6_1, agda-2_6_2, agda-2_6_3, agda-2_6_4, agda-nightly, agda2hs-src, ... }:
+  outputs = { self, nixpkgs, flake-utils, agda-2_6_1, agda-2_6_2, agda-2_6_3, agda-2_6_4, agda-nightly, agda2hs-src-1_0, agda2hs-src-1_1, ... }:
   flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
     let
       pkgs = import nixpkgs { inherit system; };
@@ -29,13 +33,20 @@
 
         agdaPackages-2_6_4 = pkgs.callPackage ./src/base {
           inherit (agda-2_6_4.packages.${system}) Agda;
+          # agda2hs = pkgs.haskellPackages.callPackage ./src/agda2hs {
+          #   agda2hs-src = agda2hs-src-1_1;
+          #   Agda = agda-2_6_4.packages.${system}.Agda;
+          #   version = "1.1";
+          # };
           aversion = "2.6.4";
         };
 
         agdaPackages-2_6_3 = pkgs.callPackage ./src/base {
           inherit (agda-2_6_3.packages.${system}) Agda;
           agda2hs = pkgs.haskellPackages.callPackage ./src/agda2hs {
-            inherit agda2hs-src;
+            agda2hs-src = agda2hs-src-1_0;
+            Agda = agda-2_6_3.packages.${system}.Agda;
+            version = "1.0";
           };
           aversion = "2.6.3";
         };
