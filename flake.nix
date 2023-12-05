@@ -6,7 +6,7 @@
     agda-2_6_1.url = "github:alexarice/agda/2.6.1-flake";
     agda-2_6_2.url = "github:agda/agda/v2.6.2.2";
     agda-2_6_3.url = "github:agda/agda/v2.6.3";
-    agda-2_6_4.url = "github:agda/agda/v2.6.4";
+    agda-2_6_4.url = "github:agda/agda/v2.6.4.1";
     agda-nightly.url = "github:agda/agda/0e85116e87e53e38cbdfa499f573970d6f78555a";
     agda2hs-src-1_0 = {
       url = "github:agda/agda2hs/v1.0";
