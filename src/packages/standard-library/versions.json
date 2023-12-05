@@ -47,8 +47,8 @@
     "agda": [ "2.6.4" ],
     "dep": {}
   },
-  "v2.0": {
-    "rev": "v2.0-rc1",
+  "v2.0-rc": {
+    "rev": "v2.0-rc2",
     "sha256": "sha256-tGY7FEcKKW2jSuzniAJpNGxLiL/RRzsOvrajZgKqzRc=",
     "agda": [ "2.6.4" ],
     "dep": {}
