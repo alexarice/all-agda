@@ -29,10 +29,10 @@ let
 
       all = withPackages (builtins.concatMap (x: lib.filter (x: lib.isDerivation x && x ? isAgdaDerivation) (lib.attrValues x)) (builtins.filter (x: x ? isLibrarySet) (lib.attrValues (removeAttrs self [ "all" ]))));
 
-      agda = withPackages [ ] // { inherit withPackages;inherit (self) agda-mode; };
+      agda = withPackages [ ] // { inherit withPackages; inherit (self) agda-mode; };
 
       agda-mode = epkgs: callPackage ../agda-mode {
-        Agda = self.agda;
+        Agda = self.agda.unwrapped;
         inherit epkgs;
       };
 
