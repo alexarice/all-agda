@@ -10,7 +10,7 @@ buildGitHub v {
 
   nativeBuildInputs = [ glibcLocales (haskellPackages.ghcWithPackages (self: [ self.filemanip ])) ];
   preConfigure = ''
-    runhaskell GenerateEverything.hs
+    runhaskell GenerateEverything.hs ${if v.version >= "2.0" then "--include-deprecated" else ""}
   '';
 
   meta = with lib; {
