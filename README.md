@@ -11,9 +11,7 @@ cachix use all-agda
 
 ## Updating
 
-To update materialisation run:
-
+To update cachix, run:
 ```
-nix build .#agdaPackages-${version}.agda.passthru.updateScript
-./result
+nix build .#agdaPackages-{version}.all --json | jq .[0].outputs.out -r | cachix push all-agda
 ```
