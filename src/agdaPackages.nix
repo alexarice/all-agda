@@ -2,7 +2,6 @@ let
   buildDir = import ../build-support/buildDir.nix;
 in
 {
-  agda2hs = buildDir ./packages/agda2hs;
   standard-library = buildDir ./packages/standard-library;
   iowa-stdlib = buildDir ./packages/iowa-stdlib;
   agda-prelude = buildDir ./packages/agda-prelude;

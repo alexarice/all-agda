@@ -1,8 +1,0 @@
-{
-  "0.1.0.2": {
-    "rev": "master",
-    "sha256": "sha256-7h/vEKCsD4PvowowhjuqS6AlBA3xEU8f99C1ZNQIWRQ=",
-    "agda": [ "2.6.3" ],
-    "dep": {}
-  }
-}

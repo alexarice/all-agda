@@ -100,40 +100,6 @@
         "type": "github"
       }
     },
-    "agda2hs-src-1_0": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1680861809,
-        "narHash": "sha256-kmBxHQjNBunzY6OBorZWAwkOd6yCrOwuaoFKh2kkDVQ=",
-        "owner": "agda",
-        "repo": "agda2hs",
-        "rev": "e051ea7ce0e3318ee33f8b4b92c90a73f20ab4bb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "agda",
-        "ref": "v1.0",
-        "repo": "agda2hs",
-        "type": "github"
-      }
-    },
-    "agda2hs-src-1_1": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1698053234,
-        "narHash": "sha256-AJVF4SYCZop6I7TRGN7PSrLWgAeXNGTWTBp25ja67/4=",
-        "owner": "agda",
-        "repo": "agda2hs",
-        "rev": "520bc37718dd33c4ddf8118d608eb73f21885bee",
-        "type": "github"
-      },
-      "original": {
-        "owner": "agda",
-        "ref": "v1.1",
-        "repo": "agda2hs",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "locked": {
         "lastModified": 1623875721,
@@ -317,8 +283,6 @@
         "agda-2_6_3": "agda-2_6_3",
         "agda-2_6_4": "agda-2_6_4",
         "agda-nightly": "agda-nightly",
-        "agda2hs-src-1_0": "agda2hs-src-1_0",
-        "agda2hs-src-1_1": "agda2hs-src-1_1",
         "flake-utils": "flake-utils_6",
         "nixpkgs": "nixpkgs_6"
       }

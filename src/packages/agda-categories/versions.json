@@ -17,10 +17,26 @@
   },
   "0.1.7": {
     "rev": "v0.1.7.1",
-    "sha256": "1acb693ad2nrmnn6jxsyrlkc0di3kk2ksj2w9wnyfxrgvfsil7rn",
+    "sha256": "sha256-Nh8atdsvd+ctT1xIPcWcIzbAJs1ed2msrdmKpkYyi6k=",
     "agda": [ "2.6.2" ],
     "dep": {
       "standard-library": "1.7"
+    }
+  },
+  "0.1.7.2": {
+    "rev": "v0.1.7.2",
+    "sha256": "sha256-lQzAfPqkdb0pG5seYVODPngSLrJxhbH1jf0K6qqoj3c=",
+    "agda": [ "2.6.3" ],
+    "dep": {
+      "standard-library": "1.7.2"
+    }
+  },
+  "0.2.0": {
+    "rev": "v0.2.0",
+      "sha256": "sha256-GQuQxzYSQxAIVSJ1vf0blRC0juoxAqD1AHW66H/6NSk=",
+    "agda": [ "2.6.4" ],
+    "dep": {
+      "standard-library": "2.0"
     }
   }
 }
