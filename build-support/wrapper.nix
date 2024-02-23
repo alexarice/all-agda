@@ -30,7 +30,9 @@ rec {
       makeWrapper ${tool}/bin/${name} $out/bin/${name} \
         --add-flags "--library-file=${library-file}" \
         --add-flags "--with-compiler=${ghc}/bin/ghc" \
-        --add-flags "--local-interfaces"
+        ${optionalString (version < "2.6.4.2") "--add-flags \"--local-interfaces\""}
+
+      ${extra}
     '';
 
     withPackages = arg: if builtins.isAttrs arg then withPackages' arg else withPackages' { pkgs = arg; };

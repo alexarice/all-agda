@@ -8,7 +8,7 @@ let
   inherit (wrapper {
         tool = Agda;
         name = "agda";
-        extra = "makeWrapper ${tool}/bin/agda-mode $out/bin/agda-mode";}) withPackages;
+        extra = "makeWrapper ${Agda}/bin/agda-mode $out/bin/agda-mode";}) withPackages;
 
   extensions = [
     "agda"
