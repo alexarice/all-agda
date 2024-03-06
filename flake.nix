@@ -6,8 +6,8 @@
     agda-2_6_1.url = "github:alexarice/agda/2.6.1-flake";
     agda-2_6_2.url = "github:agda/agda/v2.6.2.2";
     agda-2_6_3.url = "github:agda/agda/v2.6.3";
-    agda-2_6_4.url = "github:agda/agda/v2.6.4.1";
-    agda-rc.url = "github:agda/agda/v2.6.4.3-rc1";
+    agda-2_6_4.url = "github:agda/agda/v2.6.4.3";
+    agda-rc.url = "github:agda/agda/v2.6.4.2-rc2";
   };
 
   outputs = { self, nixpkgs, flake-utils, agda-2_6_1, agda-2_6_2, agda-2_6_3, agda-2_6_4, agda-rc, ... }:
