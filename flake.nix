@@ -19,7 +19,7 @@
       legacyPackages = {
         # Release candidate
         agdaPackages-rc = pkgs.callPackage ./src/base {
-          inherit (agda-rc.packages.${system}) Agda;
+          Agda = agda-rc.packages.${system}.default;
           aversion = "2.7.0";
         };
 

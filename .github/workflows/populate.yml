@@ -1,8 +1,8 @@
-name: "Populate"
+name: "Populate cachix"
 on:
   push:
 jobs:
-  population:
+  agda-version:
     continue-on-error: true
     strategy:
       matrix:

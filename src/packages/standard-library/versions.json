@@ -81,7 +81,7 @@
   },
   "experimental": {
     "rev": "experimental",
-    "sha256": "sha256-l2+8myyJSufXpt1Opf65AJaTMiHMDeYYbuvkvzbCjDo=",
+    "sha256": "sha256-7i98epTFZ757ciBOcnV9/uNh9VEaXmdUGcKyidmiy8E=",
     "agda": [
       "2.7.0"
     ],
