@@ -14,4 +14,4 @@ jobs:
         name: all-agda
         # If you chose API tokens for write access OR if you have a private cache
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: nix build .#agdaPackages-2_6_1.all
+    - run: nix build .#agdaPackages-2_6_4.all
