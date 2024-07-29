@@ -1,10 +1,12 @@
-{ epkgs, Agda }:
-
+{
+  epkgs,
+  Agda,
+}:
 epkgs.trivialBuild {
   pname = "agda-mode";
   version = Agda.version;
 
-  phases = [ "buildPhase" "installPhase" ];
+  phases = ["buildPhase" "installPhase"];
 
   # already byte-compiled by Agda builder
   buildPhase = ''

@@ -1,6 +1,8 @@
-v:
-{ lib, buildGitHub, standard-library }:
-
+v: {
+  lib,
+  buildGitHub,
+  standard-library,
+}:
 buildGitHub v {
   pname = "generics";
   repo = "generics";
@@ -11,11 +13,10 @@ buildGitHub v {
   ];
 
   meta = with lib; {
-    description =
-      "A library for datatype-generic programming in Agda";
+    description = "A library for datatype-generic programming in Agda";
     homepage = src.meta.homepage;
     license = licenses.mit;
     platforms = platforms.unix;
-    maintainers = with maintainers; [ alexarice ];
+    maintainers = with maintainers; [alexarice];
   };
 }

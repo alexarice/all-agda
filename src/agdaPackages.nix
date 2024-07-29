@@ -1,7 +1,6 @@
 let
   buildDir = import ../build-support/buildDir.nix;
-in
-{
+in {
   standard-library = buildDir ./packages/standard-library;
   iowa-stdlib = buildDir ./packages/iowa-stdlib;
   agda-prelude = buildDir ./packages/agda-prelude;

@@ -1,6 +1,9 @@
-{ version, ... }@v:
-{ lib, buildGitHub, ghc, glibcLocales }:
-
+{version, ...} @ v: {
+  lib,
+  buildGitHub,
+  ghc,
+  glibcLocales,
+}:
 buildGitHub v {
   pname = "cubical";
   repo = "cubical";
@@ -10,19 +13,18 @@ buildGitHub v {
 
   # The cubical library has several `Everything.agda` files, which are
   # compiled through the make file they provide.
-  nativeBuildInputs = [ ghc glibcLocales ];
+  nativeBuildInputs = [ghc glibcLocales];
   buildPhase = ''
     make
   '';
 
-  patches = lib.optional (version == "0.3") [ ./no_werror_patch.txt ];
+  patches = lib.optional (version == "0.3") [./no_werror_patch.txt];
 
   meta = with lib; {
-    description =
-      "A cubical type theory library for use with the Agda compiler";
+    description = "A cubical type theory library for use with the Agda compiler";
     homepage = src.meta.homepage;
     license = licenses.mit;
     platforms = platforms.unix;
-    maintainers = with maintainers; [ alexarice ];
+    maintainers = with maintainers; [alexarice];
   };
 }

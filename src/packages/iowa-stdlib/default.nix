@@ -1,6 +1,7 @@
-v:
-{ lib, buildGitHub }:
-
+v: {
+  lib,
+  buildGitHub,
+}:
 buildGitHub v {
   pname = "iowa-stdlib";
   owner = "cedille";
@@ -21,6 +22,6 @@ buildGitHub v {
     platforms = lib.platforms.unix;
     # broken since Agda 2.6.1
     broken = true;
-    maintainers = with lib.maintainers; [ alexarice ];
+    maintainers = with lib.maintainers; [alexarice];
   };
 }

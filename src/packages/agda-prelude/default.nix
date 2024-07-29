@@ -1,6 +1,8 @@
-v:
-{ lib, stdenv, buildGitHub }:
-
+v: {
+  lib,
+  stdenv,
+  buildGitHub,
+}:
 buildGitHub v {
   pname = "agda-prelude";
   owner = "UlfNorell";
@@ -18,6 +20,6 @@ buildGitHub v {
     description = "Programming library for Agda";
     license = lib.licenses.mit;
     platforms = lib.platforms.unix;
-    maintainers = with maintainers; [ alexarice ];
+    maintainers = with maintainers; [alexarice];
   };
 }

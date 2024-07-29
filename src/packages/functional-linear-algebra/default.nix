@@ -1,17 +1,21 @@
-{ version, ... }@v:
-{ lib, buildGitHub, standard-library }:
-
+{version, ...} @ v: {
+  lib,
+  buildGitHub,
+  standard-library,
+}:
 buildGitHub v {
   pname = "functional-linear-algebra";
   repo = "functional-linear-algebra";
   owner = "ryanorendorff";
 
-  buildInputs = [ standard-library ];
+  buildInputs = [standard-library];
 
   preConfigure =
-    if version >= "0.2" then ''
+    if version >= "0.2"
+    then ''
       sh generate-everything.sh
-    '' else null;
+    ''
+    else null;
 
   meta = with lib; {
     homepage = "https://github.com/ryanorendorff/functional-linear-algebra";
@@ -21,6 +25,6 @@ buildGitHub v {
     '';
     license = licenses.bsd3;
     platforms = platforms.unix;
-    maintainers = with maintainers; [ alexarice ];
+    maintainers = with maintainers; [alexarice];
   };
 }

@@ -10,12 +10,20 @@
     agda-rc.url = "github:agda/agda/v2.6.20240714";
   };
 
-  outputs = { self, nixpkgs, flake-utils, agda-2_6_1, agda-2_6_2, agda-2_6_3, agda-2_6_4, agda-rc, ... }:
-  flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
-    let
-      pkgs = import nixpkgs { inherit system; };
-    in
-    {
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+    agda-2_6_1,
+    agda-2_6_2,
+    agda-2_6_3,
+    agda-2_6_4,
+    agda-rc,
+    ...
+  }:
+    flake-utils.lib.eachSystem ["x86_64-linux"] (system: let
+      pkgs = import nixpkgs {inherit system;};
+    in {
       legacyPackages = {
         # Release candidate
         agdaPackages-rc = pkgs.callPackage ./src/base {
