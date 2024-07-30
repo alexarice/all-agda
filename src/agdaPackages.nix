@@ -8,4 +8,5 @@ in {
   cubical = buildDir ./packages/cubical;
   functional-linear-algebra = buildDir ./packages/functional-linear-algebra;
   generic = buildDir ./packages/generic;
+  generics = buildDir ./packages/generics;
 }
