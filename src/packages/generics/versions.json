@@ -1,8 +1,10 @@
 {
-    "1.0.1": {
+  "1.0.1": {
     "rev": "v1.0.1",
     "sha256": "sha256-B1eT6F0Dp2zto50ulf+K/KYMlMp8Pgc/tO9qkcqn+O8=",
-    "agda": [ "2.6.4" ],
+    "agda": [
+      "2.6.4"
+    ],
     "dep": {
       "standard-library": "2.0"
     }
