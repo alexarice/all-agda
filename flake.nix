@@ -7,7 +7,7 @@
     agda-2_6_2.url = "github:agda/agda/v2.6.2.2";
     agda-2_6_3.url = "github:agda/agda/v2.6.3";
     agda-2_6_4.url = "github:agda/agda/v2.6.4.3";
-    agda-rc.url = "github:agda/agda/v2.6.20240714";
+    agda-rc.url = "github:agda/agda/v2.7.0-rc3";
   };
 
   outputs = {
