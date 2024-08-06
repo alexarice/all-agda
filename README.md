@@ -15,3 +15,4 @@ To update cachix, run:
 ```
 nix build .#agdaPackages-{version}.all --json | jq .[0].outputs.out -r | cachix push all-agda
 ```
+This is now automatically done by a github action on pushing to the main branch.
