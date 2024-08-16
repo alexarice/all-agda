@@ -7,6 +7,7 @@
     agda-2_6_2.url = "github:agda/agda/v2.6.2.2";
     agda-2_6_3.url = "github:agda/agda/v2.6.3";
     agda-2_6_4.url = "github:agda/agda/v2.6.4.3";
+    agda-2_7_0.url = "github:agda/agda/v2.7.0";
     agda-rc.url = "github:agda/agda/v2.7.0-rc3";
   };
 
@@ -18,6 +19,7 @@
     agda-2_6_2,
     agda-2_6_3,
     agda-2_6_4,
+    agda-2_7_0,
     agda-rc,
     ...
   }:
@@ -28,6 +30,11 @@
         # Release candidate
         agdaPackages-rc = pkgs.callPackage ./src/base {
           Agda = agda-rc.packages.${system}.default;
+          aversion = "2.7.0";
+        };
+
+        agdaPackages-2_7_0 = pkgs.callPackage ./src/base {
+          Agda = agda-2_7_0.packages.${system}.default;
           aversion = "2.7.0";
         };
 
@@ -53,8 +60,24 @@
       };
 
       overlay = _: _: {
-        inherit (self.legacyPackages."${system}") agdaPackages-rc agdaPackages-2_6_1 agdaPackages-2_6_2 agdaPackages-2_6_3 agdaPackages-2_6_4;
-        inherit (self.packages."${system}") agda-rc agda-2_6_1 agda-2_6_2 agda-2_6_3 agda-2_6_4;
+        inherit
+          (self.legacyPackages."${system}")
+          agdaPackages-rc
+          agdaPackages-2_6_1
+          agdaPackages-2_6_2
+          agdaPackages-2_6_3
+          agdaPackages-2_6_4
+          agdaPackages-2_7_0
+          ;
+        inherit
+          (self.packages."${system}")
+          agda-rc
+          agda-2_6_1
+          agda-2_6_2
+          agda-2_6_3
+          agda-2_6_4
+          agda-2_7_0
+          ;
       };
 
       packages = {
@@ -63,6 +86,7 @@
         agda-2_6_2 = self.legacyPackages."${system}".agdaPackages-2_6_2.agda;
         agda-2_6_3 = self.legacyPackages."${system}".agdaPackages-2_6_3.agda;
         agda-2_6_4 = self.legacyPackages."${system}".agdaPackages-2_6_4.agda;
+        agda-2_7_0 = self.legacyPackages."${system}".agdaPackages-2_7_0.agda;
       };
     });
 }
