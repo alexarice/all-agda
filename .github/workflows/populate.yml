@@ -6,7 +6,7 @@ jobs:
     continue-on-error: true
     strategy:
       matrix:
-        version: [2_6_1, 2_6_2, 2_6_3, 2_6_4, rc]
+        version: [2_6_1, 2_6_2, 2_6_3, 2_6_4, 2_7_0, rc]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
