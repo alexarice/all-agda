@@ -2,7 +2,41 @@
   "compat-2.6.1": {
     "rev": "compat-2.6.1",
     "sha256": "128rbhd32qlq2nq3wgqni4ih58zzwvs9pkn9j8236ycxxp6x81sl",
-    "agda": [ "2.6.1" ],
+    "agda": [
+      "2.6.1"
+    ],
+    "dep": {}
+  },
+  "compat-2.6.2": {
+    "rev": "compat-2.6.2",
+    "sha256": "sha256-JECgaFSbzVVC/Yk/is9uvxL6FW3k41HndcHY5cqNVkg=",
+    "agda": [
+      "2.6.2"
+    ],
+    "dep": {}
+  },
+  "compat-2.6.3": {
+    "rev": "compat-2.6.3",
+    "sha256": "sha256-A05uDv3fJqKncea9AL6eQa0XAskLZwAIUl1OAOVeP8I=",
+    "agda": [
+      "2.6.3"
+    ],
+    "dep": {}
+  },
+  "compat-2.6.4": {
+    "rev": "compat-2.6.4",
+    "sha256": "sha256-A05uDv3fJqKncea9AL6eQa0XAskLZwAIUl1OAOVeP8I=",
+    "agda": [
+      "2.6.4"
+    ],
+    "dep": {}
+  },
+  "compat-2.7.0": {
+    "rev": "compat-2.7.0",
+    "sha256": "sha256-ab+KojzRbkUTAFNH5OA78s0F5SUuXTbliai6badveg4=",
+    "agda": [
+      "2.7.0"
+    ],
     "dep": {}
   }
 }
