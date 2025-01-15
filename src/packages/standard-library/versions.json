@@ -86,5 +86,13 @@
       "2.7.0"
     ],
     "dep": {}
+  },
+  "2.2": {
+    "rev": "v2.2",
+    "sha256": "sha256-/Fy5EOSbVNXt6Jq0yKSnlNPW4SYfn+eCTAYFnMZrbR0=",
+    "agda": [
+      "2.7.0"
+    ],
+    "dep": {}
   }
 }
