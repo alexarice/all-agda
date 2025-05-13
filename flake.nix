@@ -8,7 +8,7 @@
     agda-2_6_3.url = "github:agda/agda/v2.6.3";
     agda-2_6_4.url = "github:agda/agda/v2.6.4.3";
     agda-2_7_0.url = "github:agda/agda/v2.7.0.1";
-    agda-rc.url = "github:agda/agda/v2.7.0-rc3";
+    agda-rc.url = "github:agda/agda/v2.8.0-rc1";
   };
 
   outputs = {
@@ -30,7 +30,7 @@
         # Release candidate
         agdaPackages-rc = pkgs.callPackage ./src/base {
           Agda = agda-rc.packages.${system}.default;
-          aversion = "2.7.0";
+          aversion = "2.8.0";
         };
 
         agdaPackages-2_7_0 = pkgs.callPackage ./src/base {
