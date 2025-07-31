@@ -9,7 +9,6 @@
     agda-2_6_4.url = "github:agda/agda/v2.6.4.3";
     agda-2_7_0.url = "github:agda/agda/v2.7.0.1";
     agda-2_8_0.url = "github:agda/agda/v2.8.0";
-    agda-rc.url = "github:agda/agda/v2.8.0-rc1";
   };
 
   outputs = {
@@ -22,19 +21,12 @@
     agda-2_6_4,
     agda-2_7_0,
     agda-2_8_0,
-    agda-rc,
     ...
   }:
     flake-utils.lib.eachSystem ["x86_64-linux"] (system: let
       pkgs = import nixpkgs {inherit system;};
     in {
       legacyPackages = {
-        # Release candidate
-        agdaPackages-rc = pkgs.callPackage ./src/base {
-          Agda = agda-rc.packages.${system}.default;
-          aversion = "2.8.0";
-        };
-
         agdaPackages-2_8_0 = pkgs.callPackage ./src/base {
           Agda = agda-2_8_0.packages.${system}.default;
           aversion = "2.8.0";
@@ -69,7 +61,6 @@
       overlay = _: _: {
         inherit
           (self.legacyPackages."${system}")
-          agdaPackages-rc
           agdaPackages-2_6_1
           agdaPackages-2_6_2
           agdaPackages-2_6_3
@@ -79,7 +70,6 @@
           ;
         inherit
           (self.packages."${system}")
-          agda-rc
           agda-2_6_1
           agda-2_6_2
           agda-2_6_3
@@ -90,7 +80,6 @@
       };
 
       packages = {
-        agda-rc = self.legacyPackages."${system}".agdaPackages-rc.agda;
         agda-2_6_1 = self.legacyPackages."${system}".agdaPackages-2_6_1.agda;
         agda-2_6_2 = self.legacyPackages."${system}".agdaPackages-2_6_2.agda;
         agda-2_6_3 = self.legacyPackages."${system}".agdaPackages-2_6_3.agda;
