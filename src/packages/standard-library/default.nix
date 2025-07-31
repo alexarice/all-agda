@@ -1,17 +1,14 @@
-{version, ...}@v: {
+{version, ...} @ v: {
   lib,
   buildGitHub,
   haskellPackages,
-  glibcLocales,
 }:
 buildGitHub v {
   pname = "standard-library";
   repo = "agda-stdlib";
   owner = "agda";
 
-  LC_ALL = "en_US.UTF-8";
-
-  nativeBuildInputs = lib.optionals (version <= "2.2") [(haskellPackages.ghcWithPackages (self: [self.filemanip]))] ++ [glibcLocales];
+  nativeBuildInputs = lib.optionals (version <= "2.2") [(haskellPackages.ghcWithPackages (self: [self.filemanip]))];
   preConfigure = lib.optional (version <= "2.2") ''
     runhaskell GenerateEverything.hs ${
       if v.version >= "2.0"

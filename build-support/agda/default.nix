@@ -1,6 +1,7 @@
 # Builder for Agda packages.
 {
   stdenv,
+  glibcLocales,
   lib,
   self,
   Agda,
@@ -32,6 +33,7 @@ with builtins; let
   defaults = {
     pname,
     buildInputs ? [],
+    nativeBuildInputs ? [],
     everythingFile ? "./Everything.agda",
     libraryName ? pname,
     libraryFile ? "${libraryName}.agda-lib",
@@ -48,14 +50,20 @@ with builtins; let
 
     buildInputs = buildInputs ++ [agdaWithPkgs];
 
+    nativeBuildInputs = nativeBuildInputs ++ [glibcLocales];
+
+    LC_ALL = "C.UTF-8";
+
     buildPhase =
       if buildPhase != null
       then buildPhase
-      else if aversion < "2.8.0" then ''
+      else if aversion < "2.8.0"
+      then ''
         runHook preBuild
         agda -i ${dirOf everythingFile} ${everythingFile}
         runHook postBuild
-      '' else ''
+      ''
+      else ''
         runHook preBuild
         agda --build-library
         runHook postBuild
