@@ -8,6 +8,7 @@
     agda-2_6_3.url = "github:agda/agda/v2.6.3";
     agda-2_6_4.url = "github:agda/agda/v2.6.4.3";
     agda-2_7_0.url = "github:agda/agda/v2.7.0.1";
+    agda-2_8_0.url = "github:agda/agda/v2.8.0";
     agda-rc.url = "github:agda/agda/v2.8.0-rc1";
   };
 
@@ -20,6 +21,7 @@
     agda-2_6_3,
     agda-2_6_4,
     agda-2_7_0,
+    agda-2_8_0,
     agda-rc,
     ...
   }:
@@ -30,6 +32,11 @@
         # Release candidate
         agdaPackages-rc = pkgs.callPackage ./src/base {
           Agda = agda-rc.packages.${system}.default;
+          aversion = "2.8.0";
+        };
+
+        agdaPackages-2_8_0 = pkgs.callPackage ./src/base {
+          Agda = agda-2_8_0.packages.${system}.default;
           aversion = "2.8.0";
         };
 
@@ -68,6 +75,7 @@
           agdaPackages-2_6_3
           agdaPackages-2_6_4
           agdaPackages-2_7_0
+          agdaPackages-2_8_0
           ;
         inherit
           (self.packages."${system}")
@@ -77,6 +85,7 @@
           agda-2_6_3
           agda-2_6_4
           agda-2_7_0
+          agda-2_8_0
           ;
       };
 
@@ -87,6 +96,7 @@
         agda-2_6_3 = self.legacyPackages."${system}".agdaPackages-2_6_3.agda;
         agda-2_6_4 = self.legacyPackages."${system}".agdaPackages-2_6_4.agda;
         agda-2_7_0 = self.legacyPackages."${system}".agdaPackages-2_7_0.agda;
+        agda-2_8_0 = self.legacyPackages."${system}".agdaPackages-2_8_0.agda;
       };
     });
 }

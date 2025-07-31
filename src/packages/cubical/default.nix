@@ -13,10 +13,10 @@ buildGitHub v {
 
   # The cubical library has several `Everything.agda` files, which are
   # compiled through the make file they provide.
-  nativeBuildInputs = [ghc glibcLocales];
-  buildPhase = ''
+  nativeBuildInputs = lib.optionals (version < "0.9") [ghc] ++ [glibcLocales];
+  buildPhase = if version < "0.9" then ''
     make
-  '';
+  '' else null;
 
   patches = lib.optional (version == "0.3") [./no_werror_patch.txt];
 

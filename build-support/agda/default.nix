@@ -5,6 +5,7 @@
   self,
   Agda,
   wrapper,
+  aversion,
 }:
 with lib.strings;
 with builtins; let
@@ -39,20 +40,24 @@ with builtins; let
     extraExtensions ? [],
     ...
   }: let
-    agdaWithArgs = withPackages (builtins.filter (p: p ? isAgdaDerivation) buildInputs);
+    agdaWithPkgs = withPackages (builtins.filter (p: p ? isAgdaDerivation) buildInputs);
   in {
     inherit libraryName libraryFile;
 
     isAgdaDerivation = true;
 
-    buildInputs = buildInputs ++ [agdaWithArgs];
+    buildInputs = buildInputs ++ [agdaWithPkgs];
 
     buildPhase =
       if buildPhase != null
       then buildPhase
-      else ''
+      else if aversion < "2.8.0" then ''
         runHook preBuild
         agda -i ${dirOf everythingFile} ${everythingFile}
+        runHook postBuild
+      '' else ''
+        runHook preBuild
+        agda --build-library
         runHook postBuild
       '';
 

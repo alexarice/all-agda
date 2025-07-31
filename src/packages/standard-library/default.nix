@@ -1,4 +1,4 @@
-v: {
+{version, ...}@v: {
   lib,
   buildGitHub,
   haskellPackages,
@@ -11,8 +11,8 @@ buildGitHub v {
 
   LC_ALL = "en_US.UTF-8";
 
-  nativeBuildInputs = [glibcLocales (haskellPackages.ghcWithPackages (self: [self.filemanip]))];
-  preConfigure = ''
+  nativeBuildInputs = lib.optionals (version <= "2.2") [(haskellPackages.ghcWithPackages (self: [self.filemanip]))] ++ [glibcLocales];
+  preConfigure = lib.optional (version <= "2.2") ''
     runhaskell GenerateEverything.hs ${
       if v.version >= "2.0"
       then "--include-deprecated"

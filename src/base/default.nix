@@ -18,9 +18,7 @@
 
     inherit
       (callPackage ../../build-support/agda {
-        inherit Agda;
-        inherit self;
-        inherit wrapper;
+        inherit Agda self wrapper aversion;
       })
       withPackages
       mkDerivation

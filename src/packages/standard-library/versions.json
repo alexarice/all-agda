@@ -94,5 +94,13 @@
       "2.7.0"
     ],
     "dep": {}
+  },
+  "2.3": {
+    "rev": "v2.3-rc1",
+    "sha256": "sha256-R2MsR0M0zNfRDDZFZ6gAXtyT/cF0wlheuHxLc2piY6Y=",
+    "agda": [
+      "2.8.0"
+    ],
+    "dep": {}
   }
 }
